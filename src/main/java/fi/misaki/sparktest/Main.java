@@ -1,5 +1,8 @@
-package fi.misaki;
+package fi.misaki.sparktest;
 
+import fi.misaki.sparktest.example.RandomMeans;
+import fi.misaki.sparktest.example.ShootForPi;
+import fi.misaki.sparktest.example.SquareCubeMean;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 

@@ -1,4 +1,4 @@
-package fi.misaki;
+package fi.misaki.sparktest.example;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
