@@ -22,14 +22,14 @@ public class RandomMeans implements Serializable {
 
 
     public double summarizeWithoutPersist(List<Integer> data) {
-        return summarizeWithoutPersist(data, false);
+        return summarize(data, false);
     }
 
     public double summarizeWithPersist(List<Integer> data) {
-        return summarizeWithoutPersist(data, true);
+        return summarize(data, true);
     }
 
-    public double summarizeWithoutPersist(List<Integer> data, boolean persist) {
+    public double summarize(List<Integer> data, boolean persist) {
         JavaRDD<Double> randomData = sc.parallelize(data)
                 .map(value -> Math.random());
         if (persist) {
