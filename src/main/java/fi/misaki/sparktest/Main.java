@@ -33,22 +33,22 @@ public class Main {
 
     private static void runShootForPi(JavaSparkContext sc) {
         double pi = new ShootForPi(sc)
-                .estimatePi(generateEmptyData(10_000));
+                .estimatePi(generateEmptyData(10_000_000));
         System.out.println("Pi is roughly " + pi);
     }
 
     private static void runRandomMeans(JavaSparkContext sc) {
         double meanDifference1 = new RandomMeans(sc)
-                .summarizeWithoutPersist(generateEmptyData(100));
+                .summarizeWithoutPersist(generateEmptyData(10_000_000));
         System.out.println("Processed twice without persisting, means differ by " + meanDifference1);
         double meanDifference2 = new RandomMeans(sc)
-                .summarizeWithPersist(generateEmptyData(100));
+                .summarizeWithPersist(generateEmptyData(10_000_000));
         System.out.println("Processed twice with persisting, means differ by " + meanDifference2);
     }
 
     private static void runSquareCubeMean(JavaSparkContext sc) {
         double mean = new SquareCubeMean(sc)
-                .process(generateEmptyData(100));
+                .process(generateEmptyData(10_000_000));
         System.out.println("Mean from random values squared and cubed: " + mean);
     }
 
