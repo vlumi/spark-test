@@ -28,9 +28,9 @@ The project includes the following small example tasks, implemented as locally-r
 * For **spark-test-java**
   * Build the project: `mvn package`
   * Execute the produced binary: `java -jar target/spark-test-1.0-SNAPSHOT-jar-with-dependencies.jar`
-    * The example output will be to `STDOUT`, while the log output will be to `STDERR`
-    * While the application is running, the SparkUI will be accessible through http://localhost:4040/
-      * At the end of the execution, the application will sleep for a while, to allow some time to explore the SparkUI
+* The example output will be to `STDOUT`, while the log output will be to `STDERR`
+* While the application is running, the SparkUI will be accessible through http://localhost:4040/
+  * At the end of the execution, the application will sleep for a while, to allow some time to explore the SparkUI
 
 ## Contributions
 
