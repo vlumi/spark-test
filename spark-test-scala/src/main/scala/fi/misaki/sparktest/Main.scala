@@ -58,8 +58,8 @@ object Main extends App {
       println(s"Time until termination: ${secondsLeft}s")
       Thread.sleep(WAIT_GRANULARITY_S * MULTIPLIER_MS)
     }
-    finally {}
+    catch {
+      case _: InterruptedException =>
+    }
   }
-
-
 }
