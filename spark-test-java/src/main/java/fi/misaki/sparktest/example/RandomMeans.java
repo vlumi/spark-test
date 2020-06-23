@@ -34,7 +34,7 @@ public class RandomMeans implements Serializable {
         LongAccumulator counter = sc.sc().longAccumulator();
         JavaRDD<Double> randomData = sc.parallelize(data)
                 .map(value -> {
-                    counter.add(1);
+                    counter.add(1L);
                     return Math.random();
                 });
         if (persist) {
@@ -50,7 +50,7 @@ public class RandomMeans implements Serializable {
         return Math.abs(mean1 - mean2);
     }
 
-    private  double mean(double a, double b) {
+    private double mean(double a, double b) {
         return (a + b) / 2;
     }
 

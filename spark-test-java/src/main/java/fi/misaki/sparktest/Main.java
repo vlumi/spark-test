@@ -13,6 +13,11 @@ import java.util.List;
  * Simple examples for exploring Apache Spark.
  */
 public class Main {
+    private static final int WAIT_S = 60;
+    private static final int WAIT_GRANULARITY_S = 10;
+    private static final long MULTIPLIER_NS = 1_000_000_000L;
+    private static final int MULTIPLIER_S = 1_000;
+
     public static void main(String... args) {
         JavaSparkContext sc = init();
 
@@ -21,7 +26,7 @@ public class Main {
         runSquareCubeMean(sc);
 
         // Wait a while, to give some time for browsing the job data
-        sleep(60_000);
+        waitAtEnd(WAIT_S);
     }
 
     private static JavaSparkContext init() {
@@ -57,11 +62,15 @@ public class Main {
         return Collections.nCopies(size, 0);
     }
 
-    private static void sleep(int millis) {
+    private static void waitAtEnd(long seconds) {
+        long endNanos = System.nanoTime() + seconds * MULTIPLIER_NS;
         try {
-            Thread.sleep(millis);
+            while (System.nanoTime() < endNanos) {
+                long secondsLeft = (endNanos - System.nanoTime()) / MULTIPLIER_NS;
+                System.out.println("Time until termination: " + secondsLeft + "s");
+                Thread.sleep(WAIT_GRANULARITY_S * MULTIPLIER_S);
+            }
         } catch (InterruptedException e) {
         }
     }
-
 }
