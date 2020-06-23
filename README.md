@@ -7,7 +7,8 @@ The project includes the following small example tasks, implemented as locally-r
 * **SquareCubeMean**: Calculate the mean of the square and cube of random values.
 * **RandomMeans**: Calculates the mean of random values.
 
-Requirements:
+## Requirements
+
 * Spark 2.4 (tested on 2.4.6)
   * Included as implicit dependencies
 * For **spark-test-scala**
@@ -19,7 +20,8 @@ Requirements:
   * JDK (configured against 14, source should work with anything 1.8+)
   * Apache Maven
 
-Instructions:
+## Running Instructions
+
 * For **spark-test-scala**
   * Run SBT inside the project directory and execute:
     * `run`
@@ -29,3 +31,10 @@ Instructions:
     * The example output will be to `STDOUT`, while the log output will be to `STDERR`
     * While the application is running, the SparkUI will be accessible through http://localhost:4040/
       * At the end of the execution, the application will sleep for a while, to allow some time to explore the SparkUI
+
+## Contributions
+
+All contributions are welcome, although the chances of accepting pull requests are improved if following the basic guidelines:
+
+* All new examples are implemented in both **Java** and **Scala**
+* Running the examples don't involve any extra steps
