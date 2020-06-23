@@ -27,7 +27,8 @@ public class Main {
     private static JavaSparkContext init() {
         SparkConf conf = new SparkConf()
                 .setAppName("spark-test")
-                .setMaster("local");
+                .setMaster("local")
+                .set("spark.driver.bindAddress", "127.0.0.1");
         return new JavaSparkContext(conf);
     }
 
