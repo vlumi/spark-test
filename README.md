@@ -1,10 +1,11 @@
-# spark-test
-Quick introduction to Apache Spark through simple examples.
+# Quick Introduction to Apache Spark
 
-The project includes the following small example tasks, implemented as locally-run Spark jobs:
-* ShootForPi: Brute-force estimates the value of pi.
-* SquareCubeMean: Calculate the mean of the square and cube of random values.
-* RandomMeans: Calculates the mean of random values.
+The purpose of this project is to provide a quick introduction to Apache Spark through simple examples.
+
+The project includes the following small example tasks, implemented as locally-run Spark jobs, both in **Java** and in **Scala**:
+* **ShootForPi**: Brute-force estimates the value of pi.
+* **SquareCubeMean**: Calculate the mean of the square and cube of random values.
+* **RandomMeans**: Calculates the mean of random values.
 
 Requirements:
 * Spark 2.4 (tested on 2.4.6)
