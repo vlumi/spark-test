@@ -5,6 +5,7 @@ import fi.misaki.sparktest.example.ShootForPi;
 import fi.misaki.sparktest.example.SquareCubeMean;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,11 +31,12 @@ public class Main {
     }
 
     private static JavaSparkContext init() {
-        SparkConf conf = new SparkConf()
-                .setAppName("spark-test")
-                .setMaster("local")
-                .set("spark.driver.bindAddress", "127.0.0.1");
-        return new JavaSparkContext(conf);
+        SparkSession session = SparkSession.builder()
+                .appName("spark-test")
+                .master("local")
+                .config("spark.driver.bindAddress", "127.0.0.1")
+                .getOrCreate();
+        return new JavaSparkContext(session.sparkContext());
     }
 
     private static void runShootForPi(JavaSparkContext sc) {
