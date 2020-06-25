@@ -1,7 +1,7 @@
 package fi.misaki.sparktest
 
-
 import fi.misaki.sparktest.example.{RandomMeans, ShootForPi, SquareCubeMean}
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 
 object Main extends App {
@@ -9,6 +9,8 @@ object Main extends App {
   private val WAIT_GRANULARITY_S = 10
   private val MULTIPLIER_NS = 1000000000L // TODO: thousand separators from Scala 2.13
   private val MULTIPLIER_MS = 1000 // TODO: thousand separators from Scala 2.13
+
+  Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
 
   private val session = init
   runShootForPi

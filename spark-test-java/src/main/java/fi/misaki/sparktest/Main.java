@@ -3,7 +3,8 @@ package fi.misaki.sparktest;
 import fi.misaki.sparktest.example.RandomMeans;
 import fi.misaki.sparktest.example.ShootForPi;
 import fi.misaki.sparktest.example.SquareCubeMean;
-import org.apache.spark.SparkConf;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 
@@ -20,6 +21,8 @@ public class Main {
     private static final int MULTIPLIER_S = 1_000;
 
     public static void main(String... args) {
+        Logger.getLogger("org.apache.spark").setLevel(Level.WARN);
+
         JavaSparkContext sc = init();
 
         runShootForPi(sc);

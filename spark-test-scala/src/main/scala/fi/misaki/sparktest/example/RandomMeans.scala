@@ -1,7 +1,6 @@
 package fi.misaki.sparktest.example
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.storage.StorageLevel
 
 class RandomMeans(val session: SparkSession) extends Serializable {
 
